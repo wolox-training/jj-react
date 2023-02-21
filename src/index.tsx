@@ -4,9 +4,10 @@ import { createRoot } from 'react-dom/client';
 import 'scss/application.scss';
 
 import 'config/i18n';
-import App from 'components/App';
+// import App from 'components/App';
+import SingUp from 'screens/Dashboard/screens/SingUp';
 
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
 const rootElement = document.getElementById('root');
 
@@ -19,7 +20,7 @@ const root = createRoot(rootElement);
 const renderApp = () => {
   root.render(
     <StrictMode>
-      <App />
+      <SingUp />
     </StrictMode>
   );
 };
@@ -30,4 +31,4 @@ renderApp();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

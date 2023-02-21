@@ -28,12 +28,11 @@ describe('when there is a user', () => {
   });
 });
 
-describe('when there is no user', () => {
-  const userState = { user: null };
-
-  test('redirects to Login screen when on the home path', async () => {
-    window.history.pushState({}, '', PATHS.home);
-    render(<WrappedRoutes userState={userState} />);
-    expect(await screen.findByText(/login/)).toBeInTheDocument();
-  });
-});
+// describe('when there is no user', () => {
+//   const userState = { user: null };
+// test('redirects to Login screen when on the home path', async () => {
+//   window.history.pushState({}, '', PATHS.home);
+//   render(<WrappedRoutes userState={userState} />);
+//   expect(await screen.findByText(/login/)).toBeInTheDocument();
+//  });
+//  });

@@ -1,0 +1,65 @@
+@import 'scss/variables/_colors';
+
+.container {
+  background: $wildsand;
+  border-top: 8px solid $cerulean;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  padding-left: 60px;
+  width: 390px;
+}
+
+.error {
+  color: $red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 200;
+}
+
+.grayline {
+  background: $gray;
+  height: 1px;
+  width: 80%;
+  margin: 10px 0;
+}
+
+.input {
+  background-color: $white;
+  border-radius: 5px;
+  color: $black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  height: 32px;
+  width: 80%;
+}
+
+.logowolox {
+  height: 90px;
+  width: 300px;
+  padding-right: 40px;
+}
+
+.mainbutton {
+  background-color: $conifer;
+  border-radius: 8px;
+  border: $wildsand solid;
+  color: $white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin: 20px 0 5px;
+  height: 32px;
+  width: 80%;
+}
+
+.secundarybutton {
+  background-color: $wildsand;
+  border-radius: 8px;
+  border: $conifer solid;
+  color: $conifer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin: 10px 0 30px;
+  height: 32px;
+  width: 80%;
+}

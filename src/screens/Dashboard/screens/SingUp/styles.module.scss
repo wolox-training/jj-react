@@ -34,6 +34,21 @@
   width: 80%;
 }
 
+.languagebutton {
+  border-radius: 5px;
+  border: 2px solid $conifer;
+  color: $conifer;
+  float: right;
+  margin: 0 100px;
+  padding: 14px 40px;
+  transition-duration: 0.4s;
+}
+
+.languagebutton:hover {
+  background-color: $conifer;
+  color: $white;
+}
+
 .logowolox {
   height: 90px;
   width: 300px;

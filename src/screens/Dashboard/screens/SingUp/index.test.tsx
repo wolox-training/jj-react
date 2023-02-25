@@ -76,4 +76,11 @@ describe('Suite test of SingUp Screen', () => {
 
     screen.getByText(t('SingUp:language'));
   });
+
+  test('promise test', async () => {
+    const delay = 1000;
+    const onSubmit = new Promise<string>((resolve) => setTimeout(() => resolve('user'), delay));
+    expect.assertions(1);
+    await expect(onSubmit).resolves.toBe('user');
+  });
 });

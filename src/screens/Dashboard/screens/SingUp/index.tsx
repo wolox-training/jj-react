@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import woloxLogo from '../../../../assets/wolox-logo.png';
+import { singUp } from '../../../../services/UserServices';
 
 import styles from './styles.module.scss';
 
@@ -21,7 +22,13 @@ function SingUp() {
     formState: { errors },
     handleSubmit
   } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<IFormInput> = (data) =>
+    singUp(data).then((responses) => {
+      if (responses.ok) {
+        console.log('Regristado');
+      }
+    });
 
   const handleChangeLanguage = () => {
     i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es');

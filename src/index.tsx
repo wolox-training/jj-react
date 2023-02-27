@@ -1,5 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import 'scss/application.scss';
 
@@ -17,11 +18,17 @@ if (rootElement === null) {
 
 const root = createRoot(rootElement);
 
+// Create a client
+const queryClient = new QueryClient();
+
 const renderApp = () => {
   root.render(
-    <StrictMode>
-      <SingUp />
-    </StrictMode>
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      <StrictMode>
+        <SingUp />
+      </StrictMode>
+    </QueryClientProvider>
   );
 };
 

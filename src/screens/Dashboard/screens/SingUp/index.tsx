@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useMutation } from 'react-query';
 
 import woloxLogo from '../../../../assets/wolox-logo.png';
 import { singUp } from '../../../../services/UserServices';
@@ -23,12 +24,22 @@ function SingUp() {
     handleSubmit
   } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) =>
-    singUp(data).then((responses) => {
-      if (responses.ok) {
-        console.log('Regristado');
-      }
-    });
+  // const onSubmit: SubmitHandler<IFormInput> = (data) =>
+  //   singUp(data).then((responses) => {
+  //     if (responses.ok) {
+  //       console.log('Regristado');
+  //     }
+  //   });
+
+  const onSubmit: SubmitHandler<IFormInput> = (data) => singUp(data);
+
+  const { isLoading, error, isError, isSuccess, status } = useMutation((data: IFormInput) => singUp(data));
+
+  console.log(isLoading, 'isLoading');
+  console.log(error, 'error');
+  console.log(isError, 'isError');
+  console.log(isSuccess, 'isSuccess');
+  console.log(status, 'status');
 
   const handleChangeLanguage = () => {
     i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es');

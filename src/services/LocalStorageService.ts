@@ -25,7 +25,7 @@ const setValue = (key: string, value: any) => {
   try {
     window.localStorage.setItem(encodedKey, encodedValue);
   } catch (e) {
-    tempStorage[encodedKey] = encodedValue;
+    tempStorage[key] = encodedValue;
   }
 };
 
@@ -34,7 +34,7 @@ const removeValue = (key: string) => {
   try {
     window.localStorage.removeItem(encodedKey);
   } catch (e) {
-    tempStorage[encodedKey] = undefined;
+    tempStorage[key] = undefined;
   }
 };
 

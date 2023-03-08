@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "email": "apiFakeBooks@test.com",
+      "first_name": "name",
+      "last_name": "lastname",
+      "password": "12354@abc",
+      "password_confirmation": "Aa123@4567",
+      "locale": "en",
+      "id": 1
+    },
+    {
+      "firstName": "Juan",
+      "lastName": "Gonzalez",
+      "email": "juanGonzalez@acn.com",
+      "password": "12345qwe",
+      "confirmPassword": "12345qwe",
+      "id": 2
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { User } from 'contexts/UserContext/reducer';
 import PATHS from './paths';
 
 const Home = lazy(() => import('../../screens/Dashboard/screens/Home'));
+const SignUp = lazy(() => import('../../screens/Dashboard/screens/SignUp'));
 const Login = lazy(() => import('../../screens/Dashboard/screens/Login'));
 // Add imports for screens above (FOR GENERATORS, DO NOT REMOVE)
 
@@ -17,17 +18,24 @@ const MAIN_PRIVATE_PATH = PATHS.home;
 export const ROUTES = [
   // Leaving this as an example for then the Login screen exists
   {
-    path: PATHS.login,
-    element: <Login />,
-    title: 'Routes:loginTitle',
-    description: 'Routes:loginDescription',
-    redirectTo: (user: User | null) => (user ? MAIN_PRIVATE_PATH : undefined)
-  },
-  {
     path: PATHS.home,
     element: <Home />,
     title: 'Routes:homeTitle',
     description: 'Routes:homeDescription',
     redirectTo: (user: User | null) => (user ? undefined : MAIN_PUBLIC_PATH)
+  },
+  {
+    path: PATHS.signUp,
+    element: <SignUp />,
+    title: 'Routes:signUpTitle',
+    description: 'Routes:signUpDescription',
+    redirectTo: (user: User | null) => (user ? undefined : MAIN_PUBLIC_PATH)
+  },
+  {
+    path: PATHS.login,
+    element: <Login />,
+    title: 'Routes:loginTitle',
+    description: 'Routes:loginDescription',
+    redirectTo: (user: User | null) => (user ? undefined : MAIN_PRIVATE_PATH)
   }
 ];

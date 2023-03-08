@@ -6,7 +6,7 @@ import { User } from 'contexts/UserContext/reducer';
 import {
   getCurrentUserToken,
   login,
-  signup,
+  signUp,
   logout,
   removeCurrentUserToken,
   setCurrentUserToken
@@ -85,8 +85,8 @@ const registrationUser = {
   email: 'joen.doe@domain.com'
 };
 
-test('#signup with a valid password returns a promise with a user id and token', async () => {
-  const response = (await signup({
+test('#signUp with a valid password returns a promise with a user id and token', async () => {
+  const response = (await signUp({
     ...registrationUser,
     password: '12346578',
     passwordConfirmation: '12345678'
@@ -97,8 +97,8 @@ test('#signup with a valid password returns a promise with a user id and token',
 });
 
 // TODO: This test exists to complete coverage. After unmocking the AuthService it can be erased
-test('#signup with an invalid password returns a promise with a user id and and invalid token', async () => {
-  const response = (await signup({
+test('#signUp with an invalid password returns a promise with a user id and and invalid token', async () => {
+  const response = (await signUp({
     ...registrationUser,
     password: 'asd1',
     passwordConfirmation: 'asd1'

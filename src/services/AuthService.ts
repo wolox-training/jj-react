@@ -43,7 +43,7 @@ export const login = (credentials: Credentials): Promise<ApiResponse<User, Login
     }, TIMEOUT_TIME);
   });
 
-export const signup = (user: RegistrationUser): Promise<ApiResponse<User, LoginError>> =>
+export const signUp = (user: RegistrationUser): Promise<ApiResponse<User, LoginError>> =>
   // TODO: Implement call to authentication API here
   // api.post('/sign_up', credentials);
   new Promise((resolve) => {

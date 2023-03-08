@@ -15,46 +15,46 @@ jest.mock('react-i18next', () => ({
   }
 }));
 
-describe('Suite test of SingUp Screen', () => {
+describe('Suite test of signUp Screen', () => {
   const { t } = useTranslation();
 
   test('should show sign-up form', () => {
     render(<SignUp />);
 
-    fireEvent.input(screen.getByLabelText(t('SingUp:firstName')), {
+    fireEvent.input(screen.getByLabelText(t('signUp:firstName')), {
       target: {
         value: 'firstName'
       }
     });
-    expect(screen.getByLabelText(t('SingUp:firstName'))).toHaveValue('firstName');
+    expect(screen.getByLabelText(t('signUp:firstName'))).toHaveValue('firstName');
 
-    fireEvent.input(screen.getByLabelText(t('SingUp:lastName')), {
+    fireEvent.input(screen.getByLabelText(t('signUp:lastName')), {
       target: {
         value: 'lastName'
       }
     });
-    expect(screen.getByLabelText(t('SingUp:lastName'))).toHaveValue('lastName');
+    expect(screen.getByLabelText(t('signUp:lastName'))).toHaveValue('lastName');
 
-    fireEvent.input(screen.getByLabelText(t('SingUp:email')), {
+    fireEvent.input(screen.getByLabelText(t('signUp:email')), {
       target: {
         value: 'email'
       }
     });
-    expect(screen.getByLabelText(t('SingUp:email'))).toHaveValue('email');
+    expect(screen.getByLabelText(t('signUp:email'))).toHaveValue('email');
 
-    fireEvent.input(screen.getByLabelText(t('SingUp:password')), {
+    fireEvent.input(screen.getByLabelText(t('signUp:password')), {
       target: {
         value: 'password'
       }
     });
-    expect(screen.getByLabelText(t('SingUp:password'))).toHaveValue('password');
+    expect(screen.getByLabelText(t('signUp:password'))).toHaveValue('password');
 
-    fireEvent.input(screen.getByLabelText(t('SingUp:confirmPassword')), {
+    fireEvent.input(screen.getByLabelText(t('signUp:confirmPassword')), {
       target: {
         value: 'confirmPassword'
       }
     });
-    expect(screen.getByLabelText(t('SingUp:confirmPassword'))).toHaveValue('confirmPassword');
+    expect(screen.getByLabelText(t('signUp:confirmPassword'))).toHaveValue('confirmPassword');
 
     fireEvent.submit(screen.getByRole('mainButton'));
   });
@@ -70,11 +70,11 @@ describe('Suite test of SingUp Screen', () => {
   test('should toggle the language es and en', () => {
     render(<SignUp />);
 
-    screen.getByText(t('SingUp:language'));
+    screen.getByText(t('signUp:language'));
 
-    fireEvent.click(screen.getByText(t('SingUp:language')));
+    fireEvent.click(screen.getByText(t('signUp:language')));
 
-    screen.getByText(t('SingUp:language'));
+    screen.getByText(t('signUp:language'));
   });
 
   test('promise test', async () => {

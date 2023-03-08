@@ -5,8 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import 'scss/application.scss';
 
 import 'config/i18n';
-// import App from 'components/App';
-import SingUp from 'screens/Dashboard/screens/SingUp';
+import App from 'components/App';
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -26,7 +25,7 @@ const renderApp = () => {
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
       <StrictMode>
-        <SingUp />
+        <App />
       </StrictMode>
     </QueryClientProvider>
   );

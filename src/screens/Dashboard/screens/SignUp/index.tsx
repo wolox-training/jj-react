@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
 import woloxLogo from '../../../../assets/wolox-logo.png';
-import { singUp } from '../../../../services/UserServices';
+import { signUp } from '../../../../services/UserServices';
 
 import styles from './styles.module.scss';
 
@@ -15,7 +15,7 @@ interface IFormInput {
   confirmPassword: string;
 }
 
-function SingUp() {
+function SignUp() {
   const { t, i18n } = useTranslation();
 
   const {
@@ -23,17 +23,10 @@ function SingUp() {
     formState: { errors },
     handleSubmit
   } = useForm<IFormInput>();
+  
+  const onSubmit: SubmitHandler<IFormInput> = (data) => signUp(data);
 
-  // const onSubmit: SubmitHandler<IFormInput> = (data) =>
-  //   singUp(data).then((responses) => {
-  //     if (responses.ok) {
-  //       console.log('Regristado');
-  //     }
-  //   });
-
-  const onSubmit: SubmitHandler<IFormInput> = (data) => singUp(data);
-
-  const { isLoading, error, isError, isSuccess, status } = useMutation((data: IFormInput) => singUp(data));
+  const { isLoading, error, isError, isSuccess, status } = useMutation((data: IFormInput) => signUp(data));
 
   console.log(isLoading, 'isLoading');
   console.log(error, 'error');
@@ -53,13 +46,13 @@ function SingUp() {
         onClick={handleChangeLanguage}
         className={`row ${styles.languagebutton}`}
       >
-        {t('SingUp:language')}
+        {t('signUp:language')}
       </button>
       <div className={styles.container}>
         <img className={styles.logowolox} src={woloxLogo} alt="woloxLogo" />
         <form className="column" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="firstName" className="label black m-bottom-1">
-            {t('SingUp:firstName')}
+            {t('signUp:firstName')}
           </label>
           <input
             id="firstName"
@@ -72,7 +65,7 @@ function SingUp() {
             </span>
           )}
           <label htmlFor="lastName" className="label black m-bottom-1">
-            {t('SingUp:lastName')}
+            {t('signUp:lastName')}
           </label>
           <input id="lastName" {...register('lastName', { required: 'Required' })} className={styles.input} />
           {errors.lastName && (
@@ -81,7 +74,7 @@ function SingUp() {
             </span>
           )}
           <label htmlFor="email" className="label black m-bottom-1">
-            {t('SingUp:email')}
+            {t('signUp:email')}
           </label>
           <input id="email" {...register('email', { required: 'Required' })} className={styles.input} />
           {errors.email && (
@@ -90,7 +83,7 @@ function SingUp() {
             </span>
           )}
           <label htmlFor="password" className="label black m-bottom-1">
-            {t('SingUp:password')}
+            {t('signUp:password')}
           </label>
           <input
             id="password"
@@ -104,7 +97,7 @@ function SingUp() {
             </span>
           )}
           <label htmlFor="confirmPassword" className="label black m-bottom-1">
-            {t('SingUp:confirmPassword')}
+            {t('signUp:confirmPassword')}
           </label>
           <input
             id="confirmPassword"
@@ -118,11 +111,11 @@ function SingUp() {
             </span>
           )}
           <button role="mainButton" className={styles.mainbutton} type="submit">
-            {t('SingUp:singUp')}
+            {t('signUp:signUp')}
           </button>
           <input className={styles.grayline} />
           <button className={styles.secundarybutton} type="submit">
-            {t('SingUp:login')}
+            {t('signUp:login')}
           </button>
         </form>
       </div>
@@ -130,4 +123,4 @@ function SingUp() {
   );
 }
 
-export default SingUp;
+export default SignUp;

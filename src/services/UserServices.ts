@@ -1,4 +1,5 @@
 import apiFake from 'config/apiFake';
+import apiApiary from 'config/apiApiary';
 
 interface IFormInput {
   firstName: string;
@@ -8,4 +9,10 @@ interface IFormInput {
   confirmPassword: string;
 }
 
-export const singUp = (data: IFormInput) => apiFake.post('/users', data);
+interface LoginForm {
+  username: string;
+  password: string;
+}
+
+export const signUp = (data: IFormInput) => apiFake.post('/users', data);
+export const login = (data: LoginForm) => apiApiary.post('/login', data);

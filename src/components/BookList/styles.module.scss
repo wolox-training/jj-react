@@ -1,0 +1,41 @@
+@import 'scss/variables/_colors';
+
+.app-logo {
+  animation: app-logo-spin infinite 20s linear;
+  height: 5vmin;
+}
+
+.container {
+  border: 10px solid $white;
+  background-color: $gray;
+  border-style: outset;
+  height: 300px;
+  margin: 20px;
+  padding: 40px;
+  width: 200px;
+}
+
+.main-text {
+  color: $black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.author {
+  color: $gray;
+  text-align: left;
+  text-decoration: underline;
+}
+
+@keyframes app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

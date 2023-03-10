@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 import woloxLogo from '../../../../assets/wolox-logo.png';
 import LocalStorageService from '../../../../services/LocalStorageService';
+import { getBooks } from '../../../../services/BooksServices';
+import BookList from '../../../../components/BookList';
 
-import logo from './assets/logo.svg';
 import styles from './styles.module.scss';
 
 function Home() {
@@ -26,18 +28,33 @@ function Home() {
     navigate('/login');
   };
 
+  const listBooks: any[] = [];
+
+  const { status, data } = useQuery({
+    queryKey: ['books'],
+    queryFn: getBooks
+  });
+
+  if (status === 'loading') {
+    return <span>Loading...</span>;
+  }
+
+  if (status === 'success') {
+    listBooks.push(data.data);
+  }
+
   return (
-    <div className={styles.app}>
-      <nav className="row middle space-around">
+    <>
+      <nav className={`row middle space-around ${styles.appNav}`}>
         <img src={woloxLogo} alt="woloxLogo" />
         <a href="/login" onClick={handleLogout}>
           Logout
         </a>
       </nav>
-      <header className={styles.appHeader}>
-        <img src={logo} className={styles.appLogo} alt="logo" />
+      <header className="row wrap">
+        <BookList list={listBooks[0]} />
       </header>
-    </div>
+    </>
   );
 }
 

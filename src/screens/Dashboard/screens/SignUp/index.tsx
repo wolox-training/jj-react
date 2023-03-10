@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 
 import woloxLogo from '../../../../assets/wolox-logo.png';
 import { signUp } from '../../../../services/UserServices';
@@ -23,7 +23,7 @@ function SignUp() {
     formState: { errors },
     handleSubmit
   } = useForm<IFormInput>();
-  
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => signUp(data);
 
   const { isLoading, error, isError, isSuccess, status } = useMutation((data: IFormInput) => signUp(data));

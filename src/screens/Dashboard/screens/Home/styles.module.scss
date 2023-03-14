@@ -1,14 +1,14 @@
-.app {
-  text-align: center;
-}
+@import 'scss/variables/_colors';
 
-.app-logo {
-  animation: app-logo-spin infinite 20s linear;
-  height: 30vmin;
+.app-nav {
+  text-align: center;
+  border-top: 8px solid $cerulean;
+  border-style: outset none;
 }
 
 .app-header {
   background-color: #282C34;
+  border-top: 8px solid $cerulean;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
